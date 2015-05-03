@@ -104,7 +104,8 @@ public class SVPBypass {
      *
      * @return the method
      */
-    public static Method getMethodByTypeTypes(Class clazz, Class type, Class... paramTypes) {
+    @SuppressWarnings("rawtypes")
+	public static Method getMethodByTypeTypes(Class clazz, Class type, Class... paramTypes) {
         w1: for(Method m:clazz.getDeclaredMethods()){
             if(!m.getReturnType().equals(type)) continue;
             if(m.getParameterTypes().length!=paramTypes.length) continue;
@@ -136,7 +137,8 @@ public class SVPBypass {
      *
      * @return the field
      */
-    public static Field getFieldByType(Class clazz,Class type) {
+    @SuppressWarnings("rawtypes")
+	public static Field getFieldByType(Class clazz,Class type) {
         for(Field f:clazz.getDeclaredFields()){
             if (f.getType().equals(type)) return f;
         }

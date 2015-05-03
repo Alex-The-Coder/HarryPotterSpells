@@ -8,6 +8,7 @@ import com.hpspells.core.configuration.ConfigurationManager.ConfigurationType;
 import com.hpspells.core.configuration.PlayerSpellConfig;
 import com.hpspells.core.spell.Spell.SpellInfo;
 import com.hpspells.core.util.ReflectionsReplacement;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Effect;
 import org.bukkit.Location;
@@ -19,6 +20,7 @@ import org.bukkit.permissions.Permission;
 import org.bukkit.permissions.PermissionDefault;
 
 import javax.annotation.Nullable;
+
 import java.util.*;
 import java.util.logging.Level;
 
@@ -242,7 +244,8 @@ public class SpellManager {
      * @param spell      The spell you're checking for
      * @return
      */
-    public boolean needsCooldown(String playerName, Spell spell) {
+    @SuppressWarnings("deprecation")
+	public boolean needsCooldown(String playerName, Spell spell) {
         if (cooldowns.containsKey(playerName) && cooldowns.get(playerName).containsKey(spell)) {
             long currentTime = System.currentTimeMillis();
             long lastTime = cooldowns.get(playerName).get(spell);

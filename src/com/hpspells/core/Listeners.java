@@ -4,6 +4,7 @@ import com.hpspells.core.api.event.SpellPreCastEvent;
 import com.hpspells.core.configuration.ConfigurationManager.ConfigurationType;
 import com.hpspells.core.configuration.PlayerSpellConfig;
 import com.hpspells.core.spell.Spell;
+
 import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.entity.Player;
@@ -137,7 +138,8 @@ public class Listeners implements Listener {
             final Player p = (Player) e.getWhoClicked();
             Bukkit.getScheduler().runTask(HPS, new Runnable() {
 
-                @Override
+                @SuppressWarnings("deprecation")
+				@Override
                 public void run() {
                     p.updateInventory();
                 }

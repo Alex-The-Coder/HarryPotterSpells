@@ -4,6 +4,7 @@ import com.hpspells.core.HPS;
 import com.hpspells.core.SpellTargeter.SpellHitEvent;
 import com.hpspells.core.spell.Spell.SpellInfo;
 import com.hpspells.core.util.ParticleEffect;
+
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -65,7 +66,8 @@ public class Orchideous extends Spell {
         return loc.getBlock();
     }
 
-    private boolean isValidBlock(Block b) {
+    @SuppressWarnings("incomplete-switch")
+	private boolean isValidBlock(Block b) {
         if (b == null) {
             return false;
         }

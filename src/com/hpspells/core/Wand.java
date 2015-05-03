@@ -35,7 +35,8 @@ public class Wand {
      * @param i the itemstack
      * @return {@code true} if the ItemStack is useable as a wand
      */
-    public boolean isWand(ItemStack i) {
+    @SuppressWarnings("deprecation")
+	public boolean isWand(ItemStack i) {
     	 if (i.getTypeId() != (Integer) getConfig("id", 280)) // Item id check
              return false;
 
@@ -53,7 +54,8 @@ public class Wand {
      *
      * @return an {@link ItemStack} that has been specified as a wand in the config
      */
-    public ItemStack getWand(@Nullable Player owner) {
+    @SuppressWarnings("deprecation")
+	public ItemStack getWand(@Nullable Player owner) {
         ItemStack wand = new ItemStack((Integer) getConfig("id", 280));
         //NBTTagCompound comp = new NBTTagCompound(TAG_NAME);
 
@@ -95,7 +97,8 @@ public class Wand {
      *
      * @return an {@link ItemStack} containing a wand
      */
-    public ItemStack getLorelessWand() {
+    @SuppressWarnings("deprecation")
+	public ItemStack getLorelessWand() {
         ItemStack wand = new ItemStack((Integer) getConfig("id", 280));
 
         if ((Boolean) getConfig("lore.enabled", true)) {

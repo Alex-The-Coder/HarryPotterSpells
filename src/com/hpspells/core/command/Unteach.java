@@ -2,6 +2,7 @@ package com.hpspells.core.command;
 
 import com.hpspells.core.HPS;
 import com.hpspells.core.spell.Spell;
+
 import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
@@ -16,7 +17,8 @@ public class Unteach extends HCommandExecutor {
         super(instance);
     }
 
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (args.length > 2 || args.length == 0)
             return false;

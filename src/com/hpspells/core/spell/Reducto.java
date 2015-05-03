@@ -5,6 +5,7 @@ import com.hpspells.core.SpellTargeter.SpellHitEvent;
 import com.hpspells.core.spell.Spell.SpellInfo;
 import com.hpspells.core.util.ParticleEffect;
 import com.hpspells.core.util.SVPBypass;
+
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -49,7 +50,8 @@ public class Reducto extends Spell {
                         return;
                     }
                     Bukkit.getScheduler().scheduleSyncDelayedTask(HPS, new Runnable() {
-                        @Override
+                        @SuppressWarnings("deprecation")
+						@Override
                         public void run() {
                             for (DestroyedBlockData destroyedBlockData : blocks) {
                                 destroyedBlockData.getBlock().setTypeIdAndData(destroyedBlockData.getMaterial().getId(), destroyedBlockData.getData(), false);
@@ -77,7 +79,8 @@ public class Reducto extends Spell {
      * @param radius The radius of the explosion
      * @return A list of blocks affected by the explosion
      */
-    public static List<Block> createExplosion(Location location, float radius) throws Exception {
+    @SuppressWarnings("unchecked")
+	public static List<Block> createExplosion(Location location, float radius) throws Exception {
         Class<?> craftWorld = SVPBypass.getCurrentCBClass("CraftWorld");
         Method craftWorldExplosion = SVPBypass.getMethod(craftWorld, "explode");
 
@@ -96,7 +99,8 @@ public class Reducto extends Spell {
         private Block block;
         private byte data;
 
-        private DestroyedBlockData(Block block) {
+        @SuppressWarnings("deprecation")
+		private DestroyedBlockData(Block block) {
             this.block = block;
             this.material = block.getType();
             this.data = block.getData();

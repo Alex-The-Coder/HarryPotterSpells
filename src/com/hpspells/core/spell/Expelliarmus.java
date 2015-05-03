@@ -4,6 +4,7 @@ import com.hpspells.core.HPS;
 import com.hpspells.core.SpellTargeter.SpellHitEvent;
 import com.hpspells.core.spell.Spell.SpellInfo;
 import com.hpspells.core.util.ParticleEffect;
+
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -39,7 +40,8 @@ public class Expelliarmus extends Spell {
 
             }
 
-            @Override
+            @SuppressWarnings("deprecation")
+			@Override
             public void hitEntity(LivingEntity entity) {
                 Location targetloc = entity.getLocation();
                 List<Material> disarmItems = new ArrayList<Material>(Arrays.asList(Material.getMaterial(HPS.getConfig().getInt("Wand.ID"))));

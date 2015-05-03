@@ -65,7 +65,8 @@ public class HPS extends JavaPlugin {
      */
     public boolean localeState = true;
     
-    @Override
+    @SuppressWarnings("deprecation")
+	@Override
     public void onEnable() {
         // Instance loading
         PM = new PM(this);

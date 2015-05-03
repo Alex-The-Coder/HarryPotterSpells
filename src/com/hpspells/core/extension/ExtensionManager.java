@@ -45,7 +45,8 @@ public class ExtensionManager {
     /**
      * Disables all extensions and then reloads the extension list.
      */
-    public void reloadExtensions() {
+    @SuppressWarnings("deprecation")
+	public void reloadExtensions() {
         disableExtensions();
         extensions.clear();
 
